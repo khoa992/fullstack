@@ -1,0 +1,40 @@
+GET http://localhost:3000/movies
+Content-Type: application/json
+
+GET http://localhost:3000/movies/1
+Content-Type: application/json
+
+POST http://localhost:3000/movies
+Content-Type: application/json
+
+{ "title": "Interstellar", "director": "Christopher Nolan", "year": 2014 }
+
+PUT http://localhost:3000/movies/3
+Content-Type: application/json
+
+{
+    "title": "Inception Updated",
+    "director": "Christopher Nolan",
+    "year": 2010
+}
+
+DELETE http://localhost:3000/movies/1
+Content-Type: application/json
+
+POST http://localhost:3005/movies
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzMzMDg5NTk4LCJleHAiOjE3MzMwOTMxOTh9.FcuDY2e44zKNxrL99r3ZPy2qSMBw2a0A1MYADLn_M1Q
+
+{
+    "title": "Interstellar",
+    "director": "Christopher Nolan",
+    "year": 2014
+}
+
+POST http://localhost:3005/auth/login
+Content-Type: application/json
+
+{
+    "username": "admin",
+    "password": "admin123"
+}
