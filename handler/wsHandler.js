@@ -15,7 +15,7 @@ const initializeWebSocket = (wsServer) => {
     ws.on(event.ERROR, console.error);
 
     ws.on(event.MESSAGE, function message(data, isBinary) {
-      console.log(`Received message ${data}`);
+      console.log(`Received message: ${data}`);
       clients.forEach(function each(client) {
         if (client.readyState === WebSocket.OPEN) {
           client.send(data, { binary: isBinary });

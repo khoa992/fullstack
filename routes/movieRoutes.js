@@ -10,10 +10,12 @@ const {
 } = require("../controllers/movieController");
 const validateMovie = require("../middleware/validateMovie");
 
-router.get("/", getAllMovies);
+// Role based access control
+router.get("/", authenticateWithRoles(["admin", "regular"]), getAllMovies);
 
-router.get("/:id", authenticateWithRoles(["admin", "user"]), getMovieById);
+router.get("/:id", authenticate, getMovieById);
 
+// admin routes
 router.post("/", authenticateWithRoles(["admin"]), validateMovie, createMovie);
 
 router.put(

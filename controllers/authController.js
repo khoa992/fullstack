@@ -8,7 +8,7 @@ const login = async (req, res) => {
   try {
     const user = await User.findOne({ username });
     if (!user) return res.status(401).send("Invalid credentials");
-
+    // compare hashed password
     const passwordMatched = await bcrypt.compare(password, user.password);
     if (!passwordMatched) return res.status(401).send("Invalid credentials");
     const token = jwt.sign(
